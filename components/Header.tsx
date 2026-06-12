@@ -33,7 +33,7 @@ export default function Header() {
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-4 h-4 border border-accent rounded-sm group-hover:rotate-45 group-hover:bg-accent transition-all duration-500" />
-          <span className={clsx("font-sans font-bold text-sm tracking-widest uppercase transition-colors", scrolled ? "text-ink" : "text-white")}>
+          <span className="font-sans font-bold text-sm tracking-widest uppercase transition-colors text-ink">
             Vireon
           </span>
         </Link>
@@ -44,7 +44,7 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href}
-              className={clsx("font-sans text-[11px] font-bold uppercase tracking-[0.2em] hover:text-accent transition-colors", scrolled ? "text-ink-light" : "text-white/80")}
+              className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] hover:text-accent transition-colors text-ink-light"
             >
               {link.name}
             </Link>
@@ -59,7 +59,7 @@ export default function Header() {
 
         {/* Mobile Burger */}
         <button 
-          className={clsx("md:hidden", scrolled ? "text-ink" : "text-white")}
+          className="md:hidden text-ink"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >

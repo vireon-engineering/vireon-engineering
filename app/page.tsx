@@ -54,7 +54,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 md:grid-cols-2 gap-12"
             >
-              <p className="text-xl md:text-2xl text-ink-light font-light leading-relaxed max-w-2xl">
+              <p className="text-xl md:text-2xl text-ink font-light leading-relaxed max-w-2xl">
                 We combine world-class design, rigorous advisory, and multi-disciplinary engineering to build future-proof solar and renewable infrastructure at a planetary scale.
               </p>
               <div className="flex items-end justify-start md:justify-end">
