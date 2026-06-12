@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+@theme {
+  --color-green-deep: #0D2B1F;
+  --color-green-mid: #13422F;
+  --color-green-accent: #4ADE80;
+  --color-off-white: #F7F8F5;
+  --color-text-dark: #0D1F17;
+  --color-text-mid: #3D5A4A;
+  --color-text-muted: #6B8C7A;
+  --color-border-light: #DDE8E2;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Fluid Typography Scale */
+  --fs-hero: clamp(3.5rem, 10vw, 8rem);
+  --fs-h1: clamp(2.5rem, 6vw, 4.5rem);
+  --fs-h2: clamp(2rem, 4vw, 3.5rem);
+  --fs-h3: 1.5rem;
+  --fs-body: 1.125rem;
+  --fs-label: 0.8125rem;
+  --fs-xs: 0.75rem;
+
+  /* Spacing */
+  --s-base: 1rem;
+  --s-lg: 2rem;
+  --s-xl: 4rem;
+  --s-2xl: 8rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    @apply antialiased bg-white text-[var(--color-text-dark)] selection:bg-[var(--color-green-accent)] selection:text-[var(--color-green-deep)];
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black tracking-tighter uppercase text-[var(--color-green-deep)];
+    line-height: 0.95;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Architectural Utilities */
+.architectural-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.section-padding {
+  padding-top: var(--s-2xl);
+  padding-bottom: var(--s-2xl);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: var(--s-xl);
+    padding-bottom: var(--s-xl);
+  }
+}
+
+/* Glassmorphism */
+.glass {
+  @apply bg-white/80 backdrop-blur-md border-b border-[var(--color-border-light)];
 }
