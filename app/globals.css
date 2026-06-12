@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #0A0F14;
-  --color-obsidian-light: #151A20;
-  --color-stark-white: #FFFFFF;
-  --color-electric-lime: #00FF66;
-  --color-electric-lime-muted: rgba(0, 255, 102, 0.15);
-  --color-text-body: #A0ABC0;
-  --color-border-dark: rgba(255, 255, 255, 0.08);
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F4F5F4;
+  --color-ink: #0A0F14;
+  --color-ink-light: #4A5568;
+  --color-accent: #0D2B1F;
+  --color-accent-light: rgba(13, 43, 31, 0.05);
+  --color-border: rgba(10, 15, 20, 0.1);
 
   --font-serif: var(--font-cormorant), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -24,16 +24,16 @@
 
 @layer base {
   body {
-    @apply antialiased bg-[var(--color-obsidian)] text-[var(--color-stark-white)] selection:bg-[var(--color-electric-lime)] selection:text-[var(--color-obsidian)];
+    @apply antialiased bg-surface text-ink selection:bg-accent selection:text-surface;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-light tracking-tight text-[var(--color-stark-white)];
+    @apply font-serif font-light tracking-tight text-ink;
     line-height: 0.95;
   }
 
   p {
-    @apply font-sans leading-relaxed text-[var(--color-text-body)];
+    @apply font-sans leading-relaxed text-ink-light;
   }
 }
 
@@ -43,12 +43,12 @@
 }
 
 .bento-card {
-  @apply bg-[var(--color-obsidian-light)] border border-[var(--color-border-dark)] rounded-3xl overflow-hidden relative transition-colors duration-500 hover:border-[var(--color-electric-lime-muted)];
+  @apply bg-surface-alt border border-border rounded-3xl overflow-hidden relative transition-colors duration-500 hover:border-accent/30;
 }
 
 .bento-glow {
   @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
-  background: radial-gradient(circle at 50% 50%, var(--color-electric-lime-muted) 0%, transparent 60%);
+  background: radial-gradient(circle at 50% 50%, var(--color-accent-light) 0%, transparent 60%);
 }
 .bento-card:hover .bento-glow {
   @apply opacity-100;

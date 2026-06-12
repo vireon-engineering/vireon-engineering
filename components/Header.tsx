@@ -27,13 +27,13 @@ export default function Header() {
     <header 
       className={clsx(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
-        scrolled ? 'bg-obsidian/80 backdrop-blur-xl py-4 border-border-dark' : 'bg-transparent py-6 border-transparent'
+        scrolled ? 'bg-surface/90 backdrop-blur-xl py-4 border-border' : 'bg-transparent py-6 border-transparent'
       )}
     >
       <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-4 h-4 border border-electric-lime rounded-sm group-hover:rotate-45 group-hover:bg-electric-lime transition-all duration-500" />
-          <span className="font-sans font-bold text-sm tracking-widest uppercase text-stark-white">
+          <div className="w-4 h-4 border border-accent rounded-sm group-hover:rotate-45 group-hover:bg-accent transition-all duration-500" />
+          <span className={clsx("font-sans font-bold text-sm tracking-widest uppercase transition-colors", scrolled ? "text-ink" : "text-white")}>
             Vireon
           </span>
         </Link>
@@ -44,14 +44,14 @@ export default function Header() {
             <Link 
               key={link.name} 
               href={link.href}
-              className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-text-body hover:text-electric-lime transition-colors"
+              className={clsx("font-sans text-[11px] font-bold uppercase tracking-[0.2em] hover:text-accent transition-colors", scrolled ? "text-ink-light" : "text-white/80")}
             >
               {link.name}
             </Link>
           ))}
           <Link 
             href="#contact" 
-            className="ml-4 bg-stark-white text-obsidian text-[10px] font-black py-3 px-6 rounded-full uppercase tracking-widest hover:bg-electric-lime transition-colors"
+            className="ml-4 bg-ink text-surface text-[10px] font-black py-3 px-6 rounded-full uppercase tracking-widest hover:bg-accent hover:text-surface transition-colors"
           >
             Initiate Project
           </Link>
@@ -59,7 +59,7 @@ export default function Header() {
 
         {/* Mobile Burger */}
         <button 
-          className="md:hidden text-stark-white"
+          className={clsx("md:hidden", scrolled ? "text-ink" : "text-white")}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -74,13 +74,13 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[72px] bg-obsidian z-40 p-8 flex flex-col gap-8 md:hidden border-t border-border-dark"
+            className="fixed inset-0 top-[72px] bg-surface z-40 p-8 flex flex-col gap-8 md:hidden border-t border-border"
           >
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="font-serif text-3xl font-light text-stark-white hover:text-electric-lime transition-colors"
+                className="font-serif text-3xl font-light text-ink hover:text-accent transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -88,7 +88,7 @@ export default function Header() {
             ))}
             <Link 
               href="#contact" 
-              className="mt-8 border border-electric-lime text-electric-lime text-center py-4 rounded-full font-sans font-bold text-xs uppercase tracking-widest"
+              className="mt-8 border border-accent text-accent text-center py-4 rounded-full font-sans font-bold text-xs uppercase tracking-widest"
               onClick={() => setMobileMenuOpen(false)}
             >
               Initiate Project
