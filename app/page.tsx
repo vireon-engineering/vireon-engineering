@@ -126,9 +126,9 @@ export default function HomePage() {
                   src={service.image} 
                   alt={service.title} 
                   fill 
-                  className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-[2s] ease-out" 
+                  className="object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-[2s] ease-out" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-obsidian)] via-[var(--color-obsidian)]/80 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-obsidian)] via-[var(--color-obsidian)]/40 to-transparent" />
               </div>
               
               <div className="bento-glow" />
