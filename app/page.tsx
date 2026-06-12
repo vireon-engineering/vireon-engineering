@@ -23,7 +23,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="bg-[var(--color-obsidian)] min-h-screen">
+    <div className="bg-obsidian min-h-screen">
       {/* ══════════════════════════
            CINEMATIC HERO
       ══════════════════════════ */}
@@ -31,17 +31,17 @@ export default function HomePage() {
         <div className="max-w-6xl">
           <motion.div variants={staggerVariants} initial="hidden" animate="visible">
             <div className="text-reveal-mask mb-2 overflow-hidden">
-              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-[var(--color-stark-white)]">
+              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-stark-white">
                 Engineering the
               </motion.h1>
             </div>
             <div className="text-reveal-mask mb-2 overflow-hidden">
-              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-[var(--color-stark-white)]">
+              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-stark-white">
                 Carbon-Neutral
               </motion.h1>
             </div>
             <div className="text-reveal-mask mb-12 overflow-hidden">
-              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-[var(--color-electric-lime)] italic">
+              <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-electric-lime italic">
                 Horizon.
               </motion.h1>
             </div>
@@ -53,13 +53,13 @@ export default function HomePage() {
             transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="grid grid-cols-1 md:grid-cols-2 gap-12"
           >
-            <p className="text-xl md:text-2xl text-[var(--color-text-body)] font-light leading-relaxed max-w-2xl">
+            <p className="text-xl md:text-2xl text-text-body font-light leading-relaxed max-w-2xl">
               We combine world-class design, rigorous advisory, and multi-disciplinary engineering to build future-proof solar and renewable infrastructure at a planetary scale.
             </p>
             <div className="flex items-end justify-start md:justify-end">
-              <button className="flex items-center gap-4 text-[var(--color-electric-lime)] group">
+              <button className="flex items-center gap-4 text-electric-lime group">
                 <span className="font-sans text-sm font-bold tracking-widest uppercase">Explore Capabilities</span>
-                <div className="w-12 h-12 rounded-full border border-[var(--color-electric-lime)] flex items-center justify-center group-hover:bg-[var(--color-electric-lime)] group-hover:text-[var(--color-obsidian)] transition-all duration-500">
+                <div className="w-12 h-12 rounded-full border border-electric-lime flex items-center justify-center group-hover:bg-electric-lime group-hover:text-obsidian transition-all duration-500">
                   <ArrowRight size={18} />
                 </div>
               </button>
@@ -71,9 +71,9 @@ export default function HomePage() {
       {/* ══════════════════════════
            STATS STRIP
       ══════════════════════════ */}
-      <section className="py-12 border-y border-[var(--color-border-dark)] bg-[var(--color-obsidian-light)]">
+      <section className="py-12 border-y border-border-dark bg-obsidian-light">
         <div className="max-w-[1600px] mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-[var(--color-border-dark)]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-border-dark">
             {stats.map((stat, i) => (
               <motion.div 
                 key={stat.label}
@@ -83,10 +83,10 @@ export default function HomePage() {
                 transition={{ duration: 0.8, delay: i * 0.1 }}
                 className="pl-8 first:pl-0 flex flex-col"
               >
-                <span className="font-serif text-4xl md:text-5xl lg:text-6xl text-[var(--color-stark-white)] font-light mb-2">
-                  {stat.value}<span className="text-[var(--color-electric-lime)] text-2xl ml-1">{stat.suffix}</span>
+                <span className="font-serif text-4xl md:text-5xl lg:text-6xl text-stark-white font-light mb-2">
+                  {stat.value}<span className="text-electric-lime text-2xl ml-1">{stat.suffix}</span>
                 </span>
-                <span className="font-sans text-xs font-bold uppercase tracking-widest text-[var(--color-text-body)]">
+                <span className="font-sans text-xs font-bold uppercase tracking-widest text-text-body">
                   {stat.label}
                 </span>
               </motion.div>
@@ -106,8 +106,8 @@ export default function HomePage() {
           transition={{ duration: 1 }}
           className="mb-16"
         >
-          <h2 className="text-[var(--fs-h2)] text-[var(--color-stark-white)] max-w-3xl">
-            Precision engineering for assets that <span className="italic text-[var(--color-electric-lime)]">outperform</span> expectations.
+          <h2 className="text-[var(--fs-h2)] text-stark-white max-w-3xl">
+            Precision engineering for assets that <span className="italic text-electric-lime">outperform</span> expectations.
           </h2>
         </motion.div>
 
@@ -128,19 +128,19 @@ export default function HomePage() {
                   fill 
                   className="object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-[2s] ease-out" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-obsidian)] via-[var(--color-obsidian)]/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
               </div>
               
               <div className="bento-glow" />
 
               <div className="relative z-10 h-full p-8 md:p-10 flex flex-col justify-end">
-                <h3 className="text-3xl md:text-4xl text-[var(--color-stark-white)] mb-4 group-hover:text-[var(--color-electric-lime)] transition-colors duration-500">
+                <h3 className="text-3xl md:text-4xl text-stark-white mb-4 group-hover:text-electric-lime transition-colors duration-500">
                   {service.title}
                 </h3>
-                <p className="font-sans text-[var(--color-text-body)] max-w-md text-sm leading-relaxed">
+                <p className="font-sans text-text-body max-w-md text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <div className="mt-8 flex items-center gap-3 text-[var(--color-electric-lime)] opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                <div className="mt-8 flex items-center gap-3 text-electric-lime opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                   <span className="font-sans text-xs font-bold uppercase tracking-widest">Explore</span>
                   <ArrowRight size={16} />
                 </div>
