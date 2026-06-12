@@ -27,41 +27,22 @@ export default function HomePage() {
       {/* ══════════════════════════
            CINEMATIC HERO (LIGHT)
       ══════════════════════════ */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-16 px-6 md:px-12 w-full overflow-hidden">
-        {/* Cinematic Background Image - Kept dark for contrast against white text, but the page is light */}
-        <motion.div 
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="absolute inset-0 z-0"
-        >
-          <Image 
-            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=2400" 
-            alt="Utility-scale solar infrastructure"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Subtle gradient overlay to ensure text contrast while transitioning to light section below */}
-          <div className="absolute inset-0 bg-ink/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-ink/20" />
-        </motion.div>
-
-        <div className="relative z-10 max-w-[1600px] mx-auto w-full">
-          <div className="max-w-6xl">
+      <section className="pt-40 pb-16 px-6 md:px-12 w-full bg-surface">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <div className="max-w-6xl mb-24">
             <motion.div variants={staggerVariants} initial="hidden" animate="visible">
               <div className="text-reveal-mask mb-2 overflow-hidden">
-                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-white">
+                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-ink">
                   Engineering the
                 </motion.h1>
               </div>
               <div className="text-reveal-mask mb-2 overflow-hidden">
-                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-white">
+                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-ink">
                   Carbon-Neutral
                 </motion.h1>
               </div>
               <div className="text-reveal-mask mb-12 overflow-hidden">
-                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-surface-alt italic">
+                <motion.h1 variants={textRevealVariants} className="text-[var(--fs-hero)] leading-[0.85] text-accent italic">
                   Horizon.
                 </motion.h1>
               </div>
@@ -73,7 +54,7 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="grid grid-cols-1 md:grid-cols-2 gap-12"
             >
-              <p className="text-xl md:text-2xl text-ink font-light leading-relaxed max-w-2xl bg-surface/80 backdrop-blur-md p-6 rounded-lg border border-border">
+              <p className="text-xl md:text-2xl text-ink-light font-light leading-relaxed max-w-2xl">
                 We combine world-class design, rigorous advisory, and multi-disciplinary engineering to build future-proof solar and renewable infrastructure at a planetary scale.
               </p>
               <div className="flex items-end justify-start md:justify-end">
@@ -86,6 +67,22 @@ export default function HomePage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Cinematic Hero Image - Separated from text */}
+          <motion.div 
+            initial={{ scale: 1.05, opacity: 0, y: 40 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <Image 
+              src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&q=80&w=2400" 
+              alt="Utility-scale solar infrastructure"
+              fill
+              className="object-cover"
+              priority
+            />
+          </motion.div>
         </div>
       </section>
 
