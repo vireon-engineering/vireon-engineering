@@ -1,69 +1,55 @@
 @import "tailwindcss";
 
 @theme {
-  --color-green-deep: #0D2B1F;
-  --color-green-mid: #13422F;
-  --color-green-accent: #4ADE80;
-  --color-off-white: #F7F8F5;
-  --color-text-dark: #0D1F17;
-  --color-text-mid: #3D5A4A;
-  --color-text-muted: #6B8C7A;
-  --color-border-light: #DDE8E2;
+  --color-obsidian: #0A0F14;
+  --color-obsidian-light: #151A20;
+  --color-stark-white: #FFFFFF;
+  --color-electric-lime: #00FF66;
+  --color-electric-lime-muted: rgba(0, 255, 102, 0.15);
+  --color-text-body: #A0ABC0;
+  --color-border-dark: rgba(255, 255, 255, 0.08);
+
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 :root {
-  /* Fluid Typography Scale */
-  --fs-hero: clamp(3.5rem, 10vw, 8rem);
-  --fs-h1: clamp(2.5rem, 6vw, 4.5rem);
-  --fs-h2: clamp(2rem, 4vw, 3.5rem);
-  --fs-h3: 1.5rem;
+  --fs-hero: clamp(4rem, 12vw, 10rem);
+  --fs-h1: clamp(3rem, 8vw, 6rem);
+  --fs-h2: clamp(2rem, 5vw, 4rem);
+  --fs-h3: 1.75rem;
   --fs-body: 1.125rem;
-  --fs-label: 0.8125rem;
-  --fs-xs: 0.75rem;
-
-  /* Spacing */
-  --s-base: 1rem;
-  --s-lg: 2rem;
-  --s-xl: 4rem;
-  --s-2xl: 8rem;
+  --fs-xs: 0.875rem;
 }
 
 @layer base {
   body {
-    @apply antialiased bg-white text-[var(--color-text-dark)] selection:bg-[var(--color-green-accent)] selection:text-[var(--color-green-deep)];
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    @apply antialiased bg-[var(--color-obsidian)] text-[var(--color-stark-white)] selection:bg-[var(--color-electric-lime)] selection:text-[var(--color-obsidian)];
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-black tracking-tighter uppercase text-[var(--color-green-deep)];
+    @apply font-serif font-light tracking-tight text-[var(--color-stark-white)];
     line-height: 0.95;
   }
 
   p {
-    @apply leading-relaxed;
+    @apply font-sans leading-relaxed text-[var(--color-text-body)];
   }
 }
 
-/* Custom Architectural Utilities */
-.architectural-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 2rem;
+/* Custom Cinematic Utilities */
+.text-reveal-mask {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.section-padding {
-  padding-top: var(--s-2xl);
-  padding-bottom: var(--s-2xl);
+.bento-card {
+  @apply bg-[var(--color-obsidian-light)] border border-[var(--color-border-dark)] rounded-3xl overflow-hidden relative transition-colors duration-500 hover:border-[var(--color-electric-lime-muted)];
 }
 
-@media (max-width: 768px) {
-  .section-padding {
-    padding-top: var(--s-xl);
-    padding-bottom: var(--s-xl);
-  }
+.bento-glow {
+  @apply absolute inset-0 opacity-0 transition-opacity duration-500 pointer-events-none;
+  background: radial-gradient(circle at 50% 50%, var(--color-electric-lime-muted) 0%, transparent 60%);
 }
-
-/* Glassmorphism */
-.glass {
-  @apply bg-white/80 backdrop-blur-md border-b border-[var(--color-border-light)];
+.bento-card:hover .bento-glow {
+  @apply opacity-100;
 }

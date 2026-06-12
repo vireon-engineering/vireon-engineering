@@ -1,14 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const cormorant = Cormorant_Garamond({ 
+  subsets: ["latin"], 
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-cormorant" 
+});
+
+const jakarta = Plus_Jakarta_Sans({ 
+  subsets: ["latin"], 
+  variable: "--font-jakarta" 
+});
 
 export const metadata: Metadata = {
-  title: "Vireon Engineering — Independent Renewable Energy Consultancy",
-  description: "Independent owner's engineering, technical due diligence, and detailed engineering for utility-scale solar projects. 15+ years of rigour.",
+  title: "Vireon Engineering | Engineering the Carbon-Neutral Horizon",
+  description: "We build future-proof solar and renewable infrastructure at a planetary scale. 185+ GW Global Expertise.",
 };
 
 export default function RootLayout({
@@ -17,11 +27,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${cormorant.variable} ${jakarta.variable} bg-obsidian`}>
       <body className="font-sans">
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

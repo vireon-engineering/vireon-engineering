@@ -17,49 +17,49 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Advisory', href: '#strategic-advisory' },
+    { name: 'Engineering', href: '#design-engineering' },
+    { name: 'Execution', href: '#project-management' },
+    { name: 'Optimization', href: '#asset-optimization' },
   ];
 
   return (
     <header 
       className={clsx(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'glass py-4' : 'bg-transparent py-6'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
+        scrolled ? 'bg-[var(--color-obsidian)]/80 backdrop-blur-xl py-4 border-[var(--color-border-dark)]' : 'bg-transparent py-6 border-transparent'
       )}
     >
-      <div className="max-w-[1440px] mx-auto px-8 md:px-16 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-5 h-5 bg-green-accent rounded-sm group-hover:rotate-45 transition-transform duration-500" />
-          <span className="font-black text-lg tracking-tighter uppercase text-green-deep">
-            Vireon Engineering
+          <div className="w-4 h-4 border border-[var(--color-electric-lime)] rounded-sm group-hover:rotate-45 group-hover:bg-[var(--color-electric-lime)] transition-all duration-500" />
+          <span className="font-sans font-bold text-sm tracking-widest uppercase text-[var(--color-stark-white)]">
+            Vireon
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               href={link.href}
-              className="text-sm font-semibold text-text-mid hover:text-green-deep transition-colors"
+              className="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-text-body)] hover:text-[var(--color-electric-lime)] transition-colors"
             >
               {link.name}
             </Link>
           ))}
           <Link 
             href="#contact" 
-            className="bg-green-deep text-white text-xs font-bold py-3 px-6 rounded-sm uppercase tracking-wider hover:bg-green-mid transition-colors shadow-lg shadow-green-deep/10"
+            className="ml-4 bg-[var(--color-stark-white)] text-[var(--color-obsidian)] text-[10px] font-black py-3 px-6 rounded-full uppercase tracking-widest hover:bg-[var(--color-electric-lime)] transition-colors"
           >
-            Speak with us
+            Initiate Project
           </Link>
         </nav>
 
         {/* Mobile Burger */}
         <button 
-          className="md:hidden text-green-deep"
+          className="md:hidden text-[var(--color-stark-white)]"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -74,13 +74,13 @@ export default function Header() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 top-[72px] bg-white z-40 p-8 flex flex-col gap-8 md:hidden"
+            className="fixed inset-0 top-[72px] bg-[var(--color-obsidian)] z-40 p-8 flex flex-col gap-8 md:hidden border-t border-[var(--color-border-dark)]"
           >
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-2xl font-black uppercase tracking-tighter text-green-deep"
+                className="font-serif text-3xl font-light text-[var(--color-stark-white)] hover:text-[var(--color-electric-lime)] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -88,10 +88,10 @@ export default function Header() {
             ))}
             <Link 
               href="#contact" 
-              className="bg-green-deep text-white text-center py-4 rounded-sm font-bold uppercase"
+              className="mt-8 border border-[var(--color-electric-lime)] text-[var(--color-electric-lime)] text-center py-4 rounded-full font-sans font-bold text-xs uppercase tracking-widest"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Speak with us
+              Initiate Project
             </Link>
           </motion.div>
         )}
